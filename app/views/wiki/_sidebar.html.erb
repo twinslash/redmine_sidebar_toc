@@ -1,0 +1,17 @@
+<h3>Сontents</h3>
+ <% nodes =  Nokogiri::HTML(textilizable(@content, :text)).xpath('//h1|//h2|//h3|//h4|//h5|//h6') %>
+ <% link_href = Nokogiri::HTML(textilizable(@content, :text)).xpath('//a[@name]/@name') %>
+
+ <% nodes.each_with_index do |node,i|%>
+   <%= "<a href=\"##{link_href[i]}\" style=\"margin-left:#{nodes[i].name.delete("h").to_i*10}px;\">#{node.text.delete "¶"}</a>".html_safe %><br>
+ <%end%>
+
+<% if @wiki && @wiki.sidebar -%>
+  <%= textilizable @wiki.sidebar.content, :text %>
+<% end -%>
+
+<h3><%= l(:label_wiki) %></h3>
+
+<%= link_to l(:field_start_page), {:action => 'show', :id => nil} %><br />
+<%= link_to l(:label_index_by_title), {:action => 'index'} %><br />
+<%= link_to l(:label_index_by_date), {:controller => 'wiki', :project_id => @project, :action => 'date_index'} %><br />

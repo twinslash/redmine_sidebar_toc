@@ -1,4 +1,4 @@
-## redmine_sidebar_toc
+## Redmine sidebar toc
 
 ### Description
 

@@ -17,4 +17,4 @@ Just add some h(1-6) tags to your wiki page content. Sidebar automatically provi
 
 
 ### Screenshot
-![redmine_sidebar_toc](https://raw.github.com/twinslash/redmine_sidebar_toc/sidebar_toc_screen.png)
+![redmine_sidebar_toc](https://raw.github.com/twinslash/redmine_sidebar_toc/blob/master/sidebar_toc_screen.png)

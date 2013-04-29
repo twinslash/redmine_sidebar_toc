@@ -1,6 +1,5 @@
-<h3>Сontents</h3>
-
 <% unless @content.nil?  %>
+  <h3>Сontents</h3>
   <% nodes =  Nokogiri::HTML(textilizable(@content, :text)).xpath('//h1|//h2|//h3|//h4|//h5|//h6') %>
   <% link_href = Nokogiri::HTML(textilizable(@content, :text)).xpath('//a[@name]/@name') %>
 

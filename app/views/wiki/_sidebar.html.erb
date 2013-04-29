@@ -1,10 +1,13 @@
 <h3>Сontents</h3>
- <% nodes =  Nokogiri::HTML(textilizable(@content, :text)).xpath('//h1|//h2|//h3|//h4|//h5|//h6') %>
- <% link_href = Nokogiri::HTML(textilizable(@content, :text)).xpath('//a[@name]/@name') %>
 
- <% nodes.each_with_index do |node,i|%>
-   <%= "<a href=\"##{link_href[i]}\" style=\"margin-left:#{nodes[i].name.delete("h").to_i*10}px;\">#{node.text.delete "¶"}</a>".html_safe %><br>
- <%end%>
+<% unless @content.nil?  %>
+  <% nodes =  Nokogiri::HTML(textilizable(@content, :text)).xpath('//h1|//h2|//h3|//h4|//h5|//h6') %>
+  <% link_href = Nokogiri::HTML(textilizable(@content, :text)).xpath('//a[@name]/@name') %>
+
+  <% nodes.each_with_index do |node,i|%>
+    <%= "<a href=\"##{link_href[i]}\" style=\"margin-left:#{nodes[i].name.delete("h").to_i*10}px;\">#{node.text.delete "¶"}</a>".html_safe %><br>
+    <%end%>
+<% end %>
 
 <% if @wiki && @wiki.sidebar -%>
   <%= textilizable @wiki.sidebar.content, :text %>

@@ -1,1 +1,3 @@
-gem 'nokogiri', '< 1.6.0'
+source 'https://rubygems.org'
+
+gem "nokogiri"
